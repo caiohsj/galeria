@@ -11,7 +11,6 @@ class Pages extends CI_Controller
         }
 
         $data["title"] = ucfirst($page); // Capitalize the first letter
-        $data["css"] = "application/views/res/site/css/";
 
         $this->load->view("header", $data);
         $this->load->view($page, $data);
