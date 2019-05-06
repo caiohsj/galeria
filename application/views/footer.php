@@ -13,14 +13,14 @@
 
 
 	<!--====== Javascripts & Jquery ======-->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.nicescroll.min.js"></script>
-	<script src="js/isotope.pkgd.min.js"></script>
-	<script src="js/imagesloaded.pkgd.min.js"></script>
-	<script src="js/circle-progress.min.js"></script>
-	<script src="js/main.js"></script>
+	<script src="application/views/res/site/js/jquery-3.2.1.min.js"></script>
+	<script src="application/views/res/site/js/bootstrap.min.js"></script>
+	<script src="application/views/res/site/js/owl.carousel.min.js"></script>
+	<script src="application/views/res/site/js/jquery.nicescroll.min.js"></script>
+	<script src="application/views/res/site/js/isotope.pkgd.min.js"></script>
+	<script src="application/views/res/site/js/imagesloaded.pkgd.min.js"></script>
+	<script src="application/views/res/site/js/circle-progress.min.js"></script>
+	<script src="application/views/res/site/js/main.js"></script>
 
 	</body>
 </html>

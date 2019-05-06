@@ -14,13 +14,13 @@
 
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="views/res/site/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="views/res/site/css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="views/res/site/css/owl.carousel.min.css"/>
-	<link rel="stylesheet" href="views/res/site/css/animate.css"/>
+	<link rel="stylesheet" href="application/views/res/site/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="application/views/res/site/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="application/views/res/site/css/owl.carousel.min.css"/>
+	<link rel="stylesheet" href="application/views/res/site/css/animate.css"/>
 
 	<!-- Main Stylesheets -->
-	<link rel="stylesheet" href="views/res/site/css/style.css"/>
+	<link rel="stylesheet" href="application/views/res/site/css/style.css"/>
 
 
 	<!--[if lt IE 9]>
@@ -37,7 +37,7 @@
 
 	<!-- Top right elements -->
 	<div class="spacial-controls">
-		<div class="search-switch"><img src="img/search-icon.png" alt=""></div>
+		<div class="search-switch"><img src="application/views/res/site/img/search-icon.png" alt=""></div>
 		<div class="nav-switch-warp">
 			<div class="nav-switch">
 				<div class="ns-bar"></div>
@@ -54,9 +54,9 @@
 			</div>
 			<div class="header-warp">
 				<a href="" class="site-logo">
-					<img src="./img/logo.png" alt="">
+					<img src="application/views/res/site/img/logo.png" alt="">
 				</a>
-				<img src="img/menu-icon.png" alt="" class="menu-icon">
+				<img src="application/views/res/site/img/menu-icon.png" alt="" class="menu-icon">
 				<ul class="main-menu">
 					<li class="active"><a href="./home.html">Home</a></li>
 					<li><a href="./gallery.html">Gallery</a></li>
