@@ -13,7 +13,7 @@ CREATE TABLE tb_users (
 	id int NOT NULL AUTO_INCREMENT,
 	login varchar(255) NOT NULL,
 	password varchar(255) NOT NULL,
-	isphotographer boolean NOT NULL DEFAULT 'false',
+	isphotographer boolean NOT NULL DEFAULT false,
 	PRIMARY KEY(id)
 );
 
@@ -48,5 +48,23 @@ CREATE TABLE tb_photos (
 	id int NOT NULL AUTO_INCREMENT,
 	nome varchar(255) NOT NULL,
 	url varchar(255) NOT NULL,
+	fk_photographer int NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(fk_photographer) REFERENCES tb_photographers(id)
+);
+
+insert into tb_photos(nome,url,fk_photographer) values("Cervo","application/views/res/site/img/gallery/1.jpg",1);
+insert into tb_photos(nome,url,fk_photographer) values("Cervo","application/views/res/site/img/gallery/2.jpg",1);
+insert into tb_photos(nome,url,fk_photographer) values("Cervo","application/views/res/site/img/gallery/3.jpg",1);
+insert into tb_photos(nome,url,fk_photographer) values("Cervo","application/views/res/site/img/gallery/4.jpg",1);
+
+CREATE TABLE tb_photos_galleries (
+	fk_photo int NOT NULL,
+	fk_gallery int NOT NULL
+);
+
+CREATE TABLE tb_galleries (
+	id int NOT NULL AUTO_INCREMENT,
+	name varchar(50) NOT NULL,
 	PRIMARY KEY(id)
 );

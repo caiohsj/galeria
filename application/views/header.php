@@ -58,8 +58,8 @@
 				</a>
 				<img src="application/views/res/site/img/menu-icon.png" alt="" class="menu-icon">
 				<ul class="main-menu">
-					<li class="active"><a href="./home.html">Home</a></li>
-					<li><a href="./gallery.html">Gallery</a></li>
+					<li class="active"><a href="/">Home</a></li>
+					<li><a href="/gallery">Gallery</a></li>
 					<li><a href="./gallery-single.html">Single gallery</a></li>
 					<li><a href="./blog.html">Blog</a></li>
 					<li><a href="./contact.html">Contact</a></li>
