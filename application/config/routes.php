@@ -53,6 +53,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['photos'] = 'photos';
 $route['photos/(:any)'] = 'photos/view/$1';
 
+$route['admin'] = 'admin';
+$route['admin/(:any)'] = 'admin/view/$1';
+
 $route['default_controller'] = 'pages/view';
 $route['(:any)'] = 'pages/view/$1';
 
