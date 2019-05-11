@@ -1,3 +1,4 @@
+<?php //var_dump($_SESSION);var_dump($photographer);exit; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,7 +76,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="admin/photo">
+                            <a href="photo">
                                 <i class="far fa-check-square"></i>Register Photo</a>
                         </li>
                         <li>
@@ -187,7 +188,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="admin/photo">
+                            <a href="photo">
                                 <i class="far fa-check-square"></i>Register Photo</a>
                         </li>
                         <li>
@@ -402,7 +403,7 @@
                                             <img src="../application/views/res/admin/images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" href="#"><?php echo $photographer["name"];?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -413,9 +414,9 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">john doe</a>
+                                                        <a href="#"><?php echo $photographer["name"];?></a>
                                                     </h5>
-                                                    <span class="email">johndoe@example.com</span>
+                                                    <span class="email"><?php echo $photographer["email"];?></span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
@@ -433,7 +434,7 @@
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="logout">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>

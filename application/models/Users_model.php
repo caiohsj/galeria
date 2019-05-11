@@ -1,6 +1,6 @@
 <?php 
 
-class Photos_model extends CI_Model
+class Users_model extends CI_Model
 {
 	
 	function __construct()
@@ -9,16 +9,16 @@ class Photos_model extends CI_Model
 		$this->load->database();
 	}
 
-	//Select da tabela fotos
-	public function get_photos($data = array())
+	//Select da tabela users
+	public function get_users($data = array())
 	{
 		if(empty($data))
 		{
-			$query = $this->db->get("tb_photos");
+			$query = $this->db->get("tb_users");
 			return $query->result_array();
 		}
 
-		$query = $this->db->get_where("tb_photos", $data);
+		$query = $this->db->get_where("tb_users", $data);
 		return $query->row_array();
 	}
 }
