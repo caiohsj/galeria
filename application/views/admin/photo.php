@@ -4,13 +4,13 @@
                                         <strong>Photo Form</strong> Elements
                                     </div>
                                     <div class="card-body card-block">
-                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                        <form action="photos/create" method="post" enctype="multipart/form-data" class="form-horizontal">
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="text-input" class=" form-control-label">Nome </label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="text-input" placeholder="Ex: Nature" class="form-control">
+                                                    <input type="text" id="text-input" name="name" placeholder="Ex: Nature" class="form-control">
                                                     <small class="form-text text-muted">Informe um nome para a <footer></footer></small>
                                                 </div>
                                             </div>
@@ -20,7 +20,7 @@
                                                     <label for="file-input" class=" form-control-label">Arquivo da foto</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="file" id="file-input" name="file-input" class="form-control-file">
+                                                    <input type="file" id="file-input" name="photo" class="form-control-file">
                                                 </div>
                                             </div>
                                             

@@ -28,7 +28,7 @@ class Admin extends CI_Controller
                         show_404();
                 }
 
-                //Pegando valores dos inputs do formulario de login
+                //Pegando id usuário da sessão
                 $values = [
                         "fk_user" => $_SESSION["id_user"]
                 ];
@@ -36,6 +36,9 @@ class Admin extends CI_Controller
                 //Faz o select o procurando o usuario acima($values)
                 $photographer = $this->photographers_model->get_users($values);
 
+                $_SESSION["id_photographer"] = $photographer["id"];
+
+                //Array com dados do fotógrafo que foi buscado no banco; 
                 $data["photographer"] = $photographer;
 
                 //$data["title"] = ucfirst($page); // Capitalize the first letter
@@ -89,10 +92,11 @@ class Admin extends CI_Controller
                 
         }
 
+        //Função para deslogar, retira da sessão
         public function logout()
         {
                 session_start();
-                unset($_SESSION["id_user"],$_SESSION["login"],$_SESSION["isphotographer"]);
+                unset($_SESSION["id_user"],$_SESSION["login"],$_SESSION["isphotographer"],$_SESSION["id_photographer"]);
                 header("location: login");
         }
 }

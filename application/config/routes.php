@@ -53,6 +53,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['photos'] = 'photos';
 $route['photos/(:any)'] = 'photos/view/$1';
 
+$route['photos/create'] = 'photos/create';
+
 $route['admin/login'] = 'admin/login';
 
 //Rota do logout

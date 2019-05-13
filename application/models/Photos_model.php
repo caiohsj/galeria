@@ -21,5 +21,10 @@ class Photos_model extends CI_Model
 		$query = $this->db->get_where("tb_photos", $data);
 		return $query->row_array();
 	}
+
+	public function set_photos($data = array())
+	{
+		return $this->db->insert('tb_photos', $data);
+	}
 }
 ?>
