@@ -17,9 +17,9 @@ class Photos extends CI_Controller
         $this->load->view("footer", $data);
 	}
 
-	public function view($data = array())
+	public function view($values = array(), $msg)
 	{
-		$data["photos_item"] = $this->photos_model->get_photos($data);
+		$data["photos_item"] = $this->photos_model->get_photos($values);
 
 		if(empty($data["photos_item"]))
 		{
@@ -35,27 +35,30 @@ class Photos extends CI_Controller
 	public function create()
 	{
 		session_start();
+		
         //$this->users_model->verify_login();
 
         $this->load->helper('form');
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('name', 'Nome', 'required');
-        $this->form_validation->set_rules('photo', 'Photo', 'required');
+        //$this->form_validation->set_rules('photo', 'Photo', 'required');
 
         if ($this->form_validation->run() === FALSE)
         {
-            $this->load->view("admin/index");
+           //$this->load->view("admin/index");
+           header("location: ../admin/index");
         }
         else
         {
-        	$name = $this->input->post("email");
+        	$this->load->helper("url");
+        	$name = $this->input->post("name");
         	$fk_photographer = $_SESSION["id_photographer"];
 
         	//upload do arquivo com data e hora no nome do arquivo
 		    date_default_timezone_set('America/Sao_Paulo'); // definir fuso horario
 		    $dateAndTime = date('dmYHi'); // pegar data e hora do servidor
-		    $name_file = "application/views/res/site/img/gallery/" . $dataEHora . $_FILES["photo"]["name"]; // definir pasta e nome do arquivo no servidor
+		    $name_file = "application/views/res/site/img/gallery/" . $dateAndTime . $_FILES["photo"]["name"]; // definir pasta e nome do arquivo no servidor
 		    $name_file_tmp = $_FILES["photo"]["tmp_name"]; // pegar nome do arquivo temporario no servidor
 		    $msgErroArquivo = ""; // definir msg de erro vazia
 		    if(move_uploaded_file($name_file_tmp, $name_file)==false){ // se ocorrer erro...
@@ -65,12 +68,18 @@ class Photos extends CI_Controller
 
 
 
-	        //Pegando valores dos inputs do formulario de login
+	        //Pegando valores dos inputs do formulario
 	        $values = [
 	            "name" => $name,
 	            "url" => $name_file,
 	            "fk_photographer" => $fk_photographer
 	        ];
+
+	        if($this->photos_model->set_photos($values))
+	        {
+	        	$data["alertSuccess"] = "Foto adicionada com sucesso";
+	        	$this->load->view("admin/photo", $data);
+	        }
 	        
         }
 	}

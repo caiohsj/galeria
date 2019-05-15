@@ -2,9 +2,22 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <strong>Photo Form</strong> Elements
+                                        <?php 
+                                            if(isset($alertSuccess))
+                                            {
+                                        ?>
+                                        <div class="alert alert-success" role="alert">
+                                            
+                                            <?php echo $alertSuccess; ?>
+                                                
+                                        </div>
+                                        <?php
+                                            } 
+                                        ?>
                                     </div>
                                     <div class="card-body card-block">
-                                        <form action="photos/create" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                        
+                                        <form action="../photos/create" method="post" enctype="multipart/form-data" class="form-horizontal">
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="text-input" class=" form-control-label">Nome </label>
@@ -23,41 +36,15 @@
                                                     <input type="file" id="file-input" name="photo" class="form-control-file">
                                                 </div>
                                             </div>
-                                            
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-dot-circle-o"></i> Submit
+                                                </button>
+                                                <button type="reset" class="btn btn-danger btn-sm">
+                                                    <i class="fa fa-ban"></i> Reset
+                                                </button>
+                                            </div>  
                                         </form>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm">
-                                            <i class="fa fa-dot-circle-o"></i> Submit
-                                        </button>
-                                        <button type="reset" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-ban"></i> Reset
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header">
-                                        <strong>Inline</strong> Form
-                                    </div>
-                                    <div class="card-body card-block">
-                                        <form action="" method="post" class="form-inline">
-                                            <div class="form-group">
-                                                <label for="exampleInputName2" class="pr-1  form-control-label">Name</label>
-                                                <input type="text" id="exampleInputName2" placeholder="Jane Doe" required="" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail2" class="px-1  form-control-label">Email</label>
-                                                <input type="email" id="exampleInputEmail2" placeholder="jane.doe@example.com" required="" class="form-control">
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm">
-                                            <i class="fa fa-dot-circle-o"></i> Submit
-                                        </button>
-                                        <button type="reset" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-ban"></i> Reset
-                                        </button>
                                     </div>
                                 </div>
                             </div>

@@ -11,7 +11,20 @@ class Admin extends CI_Controller
 
         public function index()
         {
-                $data["title"] = "Home";
+                session_start();
+                
+                //Pegando id usuário da sessão
+                $values = [
+                        "fk_user" => $_SESSION["id_user"]
+                ];
+
+                //Faz o select o procurando o usuario acima($values)
+                $photographer = $this->photographers_model->get_users($values);
+
+                $_SESSION["id_photographer"] = $photographer["id"];
+
+                //Array com dados do fotógrafo que foi buscado no banco; 
+                $data["photographer"] = $photographer;
 
                 $this->load->view("admin/header", $data);
                 $this->load->view("admin/index", $data);
@@ -21,6 +34,7 @@ class Admin extends CI_Controller
 	public function view($page = "index")
 	{
                 session_start();
+
 
 		if ( ! file_exists(APPPATH."views/admin/".$page.".php"))
                 {

@@ -50,7 +50,7 @@ CREATE TABLE tb_addresses (
 
 CREATE TABLE tb_photos (
 	id int NOT NULL AUTO_INCREMENT,
-	nome varchar(255) NOT NULL,
+	name varchar(255) NOT NULL,
 	url varchar(255) NOT NULL,
 	fk_photographer int NOT NULL,
 	PRIMARY KEY(id),
