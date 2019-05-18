@@ -19,7 +19,7 @@ class Admin extends CI_Controller
                 ];
 
                 //Faz o select o procurando o usuario acima($values)
-                $photographer = $this->photographers_model->get_users($values);
+                $photographer = $this->photographers_model->get_photographers($values);
 
                 $_SESSION["id_photographer"] = $photographer["id"];
 
@@ -48,7 +48,7 @@ class Admin extends CI_Controller
                 ];
 
                 //Faz o select o procurando o usuario acima($values)
-                $photographer = $this->photographers_model->get_users($values);
+                $photographer = $this->photographers_model->get_photographers($values);
 
                 $_SESSION["id_photographer"] = $photographer["id"];
 
@@ -90,7 +90,7 @@ class Admin extends CI_Controller
                         $user = $this->users_model->get_users($values);
 
                         //Se o usuario foi encontrado
-                        if(!empty($user))
+                        if(empty($user) === false)
                         {
                                 $_SESSION["id_user"] = $user["id"];
                                 $_SESSION["login"] = $user["login"];

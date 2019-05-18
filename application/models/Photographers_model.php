@@ -10,7 +10,7 @@ class Photographers_model extends CI_Model
 	}
 
 	//Select da tabela photographers
-	public function get_users($data = array())
+	public function get_photographers($data = array())
 	{
 		if(empty($data))
 		{

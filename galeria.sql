@@ -109,5 +109,33 @@ values(
         "Coxim",
         "Mato Grosso Do Sul",
         "79400000",
-        "photo.gallery@gmail.com"
+        "photo.gallery@contact.com"
+);
+
+CREATE TABLE tb_posts (
+	id int NOT NULL AUTO_INCREMENT,
+    title varchar(100) NOT NULL,
+    description text NOT NULL,
+    dt_post datetime DEFAULT CURRENT_TIMESTAMP,
+    image varchar(255) NOT NULL,
+    fk_photographer int NOT NULL,
+    PRIMARY KEY(id)
+);
+
+insert into tb_posts(title,description,dt_post,image,fk_photographer)
+values(
+		"The best tips & tricks",
+        "Ut pellentesque auctor lorem, at maximus lacus faucibus nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris auctor nunc non nulla euismod consequat. Pellentesque non mattis nulla. Fusce quis tempor risus, non elemen tum dui. Curabitur et mattis ex, a ultrices. Ut pellentesque auctor lorem, at maximus lacus faucibus nec. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+        "2019-05-18 03:01:55",
+        "application/views/res/site/img/blog/1.jpg",
+        1
+);
+
+insert into tb_posts(title,description,dt_post,image,fk_photographer)
+values(
+		"The best tips & tricks",
+        "Ut pellentesque auctor lorem, at maximus lacus faucibus nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris auctor nunc non nulla euismod consequat. Pellentesque non mattis nulla. Fusce quis tempor risus, non elemen tum dui. Curabitur et mattis ex, a ultrices. Ut pellentesque auctor lorem, at maximus lacus faucibus nec. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+        "2019-05-18 18:06:35",
+        "application/views/res/site/img/blog/2.jpg",
+        1
 );
