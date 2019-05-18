@@ -52,11 +52,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['blog'] = 'blog';
 
-$route['photos/create'] = 'photos/create';
+//$route['photos/create'] = 'photos/create';
 
-$route['photos'] = 'photos';
-
-$route['photos/(:any)'] = 'photos/view/$1';
+$route['admin/create/(:any)'] = 'admin/create/$1';
 
 $route['admin/login'] = 'admin/login';
 

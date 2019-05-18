@@ -64,10 +64,10 @@
 					<li class=""><a href="/">Home</a></li>
 					<?php }?>
 
-					<?php if(isset($page_active) && $page_active === "photos"){?>
-					<li class="active"><a href="/photos">Gallery</a></li>
+					<?php if(isset($page_active) && $page_active === "gallery"){?>
+					<li class="active"><a href="/gallery">Gallery</a></li>
 					<?php } else {?>
-					<li class=""><a href="/photos">Gallery</a></li>
+					<li class=""><a href="/gallery">Gallery</a></li>
 					<?php }?>
 
 					<li><a href="./gallery-single.html">Single gallery</a></li>

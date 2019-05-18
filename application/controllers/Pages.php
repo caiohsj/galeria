@@ -5,6 +5,7 @@ class Pages extends CI_Controller
         {
                 parent::__construct();
                 $this->load->model("projects_model");
+                $this->load->model("photos_model");
                 $this->load->model("configs_model");
         }
 	
@@ -16,18 +17,30 @@ class Pages extends CI_Controller
                         show_404();
                 }
 
-                $data["page_active"] = $page;
                 $data["projects"] = $this->projects_model->get_projects();
                 $data["quantity_projects"] = $this->projects_model->count_projects();
+                
                 $configs = $this->configs_model->get_configs();
 
                 $configs[0]["phone"] = $this->mask_phone($configs[0]["phone"]);
 
                 $data["configs"] = $configs[0];
 
+                $data["page_active"] = $page;
+
+                if($page == "gallery")
+                {
+                        $data["photos"] = $this->photos_model->get_photos();
+                }
+
                 $this->load->view("header", $data);
                 $this->load->view($page, $data);
                 $this->load->view("footer", $data);
+        }
+
+        public function list_photos()
+        {
+
         }
 
         public function mask_phone($phone)
