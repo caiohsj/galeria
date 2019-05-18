@@ -81,17 +81,33 @@ CREATE TABLE tb_projects (
     PRIMARY KEY(id)
 );
 
-insert into tb_projects(title,description,image) values("Projeto 1","Ut pellentesque auctor lorem, at maximus lacus faucibus nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris auctor nunc non nulla euismod consequat. Pellentesque non mattis nulla. Fusce quis tempor risus, non elemen tum dui. Curabitur et mattis ex, a ultrices.","application/views/res/site/img/slider-bg-1.jpg");
+insert into tb_projects(title,description,image)values("Projeto 1","Ut pellentesque auctor lorem, at maximus lacus faucibus nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris auctor nunc non nulla euismod consequat. Pellentesque non mattis nulla. Fusce quis tempor risus, non elemen tum dui. Curabitur et mattis ex, a ultrices.","application/views/res/site/img/slider-bg-1.jpg");
 insert into tb_projects(title,description,image) values("Projeto 2","Ut pellentesque auctor lorem, at maximus lacus faucibus nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris auctor nunc non nulla euismod consequat. Pellentesque non mattis nulla. Fusce quis tempor risus, non elemen tum dui. Curabitur et mattis ex, a ultrices.","application/views/res/site/img/slider-bg-2.jpg");
 insert into tb_projects(title,description,image) values("Projeto 3","Ut pellentesque auctor lorem, at maximus lacus faucibus nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris auctor nunc non nulla euismod consequat. Pellentesque non mattis nulla. Fusce quis tempor risus, non elemen tum dui. Curabitur et mattis ex, a ultrices.","application/views/res/site/img/slider-bg-3.jpg");
 
 CREATE TABLE tb_configs (
-	company varchar(30) NOT NULL,
+	id int NOT NULL AUTO_INCREMENT,
+	logo varchar(255) NOT NULL,
     phone varchar(11) NOT NULL,
     street varchar(100) NOT NULL,
     district varchar(100) NOT NULL,
     number int NOT NULL,
+    city varchar(30) NOT NULL,
     state varchar(30) NOT NULL,
-    country varchar(30) NOT NULL,
-    zipcode varchar(8) NOT NULL
+    zipcode varchar(8) NOT NULL,
+    email varchar(255) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+insert into tb_configs(logo,phone,street,district,number,city,state,zipcode,email)
+values(
+		"application/views/res/site/img/logo.png",
+        "67996456959",
+        "Luiz Martins Da Cunha",
+        "Senhor Divino",
+        300,
+        "Coxim",
+        "Mato Grosso Do Sul",
+        "79400000",
+        "photo.gallery@gmail.com"
 );

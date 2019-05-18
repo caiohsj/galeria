@@ -54,7 +54,7 @@
 			</div>
 			<div class="header-warp">
 				<a href="" class="site-logo">
-					<img src="application/views/res/site/img/logo.png" alt="">
+					<img src="<?php echo $configs["logo"]; ?>" alt="">
 				</a>
 				<img src="application/views/res/site/img/menu-icon.png" alt="" class="menu-icon">
 				<ul class="main-menu">
@@ -73,7 +73,7 @@
 				<?php }?>
 					<li><a href="./gallery-single.html">Single gallery</a></li>
 					<li><a href="./blog.html">Blog</a></li>
-					<li><a href="./contact.html">Contact</a></li>
+					<li><a href="/contact">Contact</a></li>
 				</ul>
 				<div class="social-links-warp">
 					<div class="social-links">

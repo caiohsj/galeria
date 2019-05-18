@@ -7,7 +7,7 @@
 				?>
 				<div class="slider-item d-flex align-items-center set-bg" data-setbg="<?php echo $projects_item['image']; ?>" data-hash="project<?php echo $i; ?>">
 					<div class="si-text-box">
-						<span>Photography - <?php echo $string[1]; ?></span>
+						<span>Photography</span>
 						<h2><?php echo $projects_item["title"]; ?></h2>
 						<p><?php echo $projects_item["description"]; ?></p>
 						<a href="" class="site-btn">Read More</a>
