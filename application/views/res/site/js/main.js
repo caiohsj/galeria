@@ -92,7 +92,7 @@ $(window).on('load', function() {
         dots: false,
         animateOut: 'fadeOut',
     	animateIn: 'fadeIn',
-        navText: ['<img src="./img/angle-left-w.png" alt="">', '<img src="./img/angle-rignt.png" alt="">'],
+        navText: ['<img src="application/views/res/site/img/angle-left-w.png" alt="">', '<img src="application/views/res/site/img/angle-rignt.png" alt="">'],
         smartSpeed: 1200,
         autoHeight: false,
 		startPosition: 'URLHash',

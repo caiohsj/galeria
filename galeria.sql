@@ -72,3 +72,26 @@ CREATE TABLE tb_galleries (
 	name varchar(50) NOT NULL,
 	PRIMARY KEY(id)
 );
+
+CREATE TABLE tb_projects (
+	id int NOT NULL AUTO_INCREMENT,
+    title varchar(30) NOT NULL,
+    description text NOT NULL,
+    image varchar(255) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+insert into tb_projects(title,description,image) values("Projeto 1","Ut pellentesque auctor lorem, at maximus lacus faucibus nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris auctor nunc non nulla euismod consequat. Pellentesque non mattis nulla. Fusce quis tempor risus, non elemen tum dui. Curabitur et mattis ex, a ultrices.","application/views/res/site/img/slider-bg-1.jpg");
+insert into tb_projects(title,description,image) values("Projeto 2","Ut pellentesque auctor lorem, at maximus lacus faucibus nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris auctor nunc non nulla euismod consequat. Pellentesque non mattis nulla. Fusce quis tempor risus, non elemen tum dui. Curabitur et mattis ex, a ultrices.","application/views/res/site/img/slider-bg-2.jpg");
+insert into tb_projects(title,description,image) values("Projeto 3","Ut pellentesque auctor lorem, at maximus lacus faucibus nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris auctor nunc non nulla euismod consequat. Pellentesque non mattis nulla. Fusce quis tempor risus, non elemen tum dui. Curabitur et mattis ex, a ultrices.","application/views/res/site/img/slider-bg-3.jpg");
+
+CREATE TABLE tb_configs (
+	company varchar(30) NOT NULL,
+    phone varchar(11) NOT NULL,
+    street varchar(100) NOT NULL,
+    district varchar(100) NOT NULL,
+    number int NOT NULL,
+    state varchar(30) NOT NULL,
+    country varchar(30) NOT NULL,
+    zipcode varchar(8) NOT NULL
+);

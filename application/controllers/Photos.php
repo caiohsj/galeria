@@ -12,9 +12,9 @@ class Photos extends CI_Controller
 	{
 		$data["photos"] = $this->photos_model->get_photos();
 
-		$this->load->view("header", $data);
-        $this->load->view("photos", $data);
-        $this->load->view("footer", $data);
+		$data["page_active"] = "photos";
+
+		$this->load_page_photos($data);
 	}
 
 	public function view($values = array(), $msg)
@@ -26,10 +26,15 @@ class Photos extends CI_Controller
 			show_404();
 		}
 
+		$this->load_page_photos($data);
+
+	} 
+
+	public function load_page_photos($data = array())
+	{
 		$this->load->view("header", $data);
         $this->load->view("photos", $data);
         $this->load->view("footer", $data);
-
 	}
 
 	public function create()
@@ -54,18 +59,10 @@ class Photos extends CI_Controller
         	$this->load->helper("url");
         	$name = $this->input->post("name");
         	$fk_photographer = $_SESSION["id_photographer"];
+        	$photo = $_FILES["photo"];
 
-        	//upload do arquivo com data e hora no nome do arquivo
-		    date_default_timezone_set('America/Sao_Paulo'); // definir fuso horario
-		    $dateAndTime = date('dmYHi'); // pegar data e hora do servidor
-		    $name_file = "application/views/res/site/img/gallery/" . $dateAndTime . $_FILES["photo"]["name"]; // definir pasta e nome do arquivo no servidor
-		    $name_file_tmp = $_FILES["photo"]["tmp_name"]; // pegar nome do arquivo temporario no servidor
-		    $msgErroArquivo = ""; // definir msg de erro vazia
-		    if(move_uploaded_file($name_file_tmp, $name_file)==false){ // se ocorrer erro...
-		        $msgErroArquivo = "Arquivo não pode ser enviado."; // define msg de erro
-		    }
-		    //fim upload do arquivo
-
+        	
+        	$name_file = $this->upload_photo("application/views/res/site/img/gallery/",$photo);
 
 
 	        //Pegando valores dos inputs do formulario
@@ -82,6 +79,27 @@ class Photos extends CI_Controller
 	        }
 	        
         }
+	}
+
+	//Recebe a url onde será salvo o arquivo e o name do input file que está enviando o arquivo e retorna o caminho completo do arquivo(foto)
+	public function upload_photo($url, $input_file)
+	{
+		//upload do arquivo com data e hora no nome do arquivo
+		date_default_timezone_set('America/Sao_Paulo'); // definir fuso horario
+		$dateAndTime = date('dmYHi'); // pegar data e hora do servidor
+		$name_file = $url . $dateAndTime . $input_file["name"]; // definir pasta e nome do arquivo no servidor
+		$name_file_tmp = $input_file["tmp_name"]; // pegar nome do arquivo temporario no servidor
+		$msgErroArquivo = ""; // definir msg de erro vazia
+		if(move_uploaded_file($name_file_tmp, $name_file)==false)
+		{ // se ocorrer erro...
+		    $msgErroArquivo = "Arquivo não pode ser enviado."; // define msg de erro
+		}
+		else
+		{
+			return $name_file;
+		}
+
+		//fim upload do arquivo
 	}
 }
 ?>

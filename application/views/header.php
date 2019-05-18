@@ -58,8 +58,19 @@
 				</a>
 				<img src="application/views/res/site/img/menu-icon.png" alt="" class="menu-icon">
 				<ul class="main-menu">
+					<?php if(isset($page_active) && $page_active === "home"){?>
 					<li class="active"><a href="/">Home</a></li>
-					<li><a href="/photos">Gallery</a></li>
+					<?php } else { ?>
+
+					<li class=""><a href="/">Home</a></li>
+
+					<?php }?>
+
+					<?php if(isset($page_active) && $page_active === "photos"){?>
+					<li class="active"><a href="/photos">Gallery</a></li>
+					<?php } else {?>
+					<li class=""><a href="/photos">Gallery</a></li>
+				<?php }?>
 					<li><a href="./gallery-single.html">Single gallery</a></li>
 					<li><a href="./blog.html">Blog</a></li>
 					<li><a href="./contact.html">Contact</a></li>
