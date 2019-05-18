@@ -61,19 +61,28 @@
 					<?php if(isset($page_active) && $page_active === "home"){?>
 					<li class="active"><a href="/">Home</a></li>
 					<?php } else { ?>
-
 					<li class=""><a href="/">Home</a></li>
-
 					<?php }?>
 
 					<?php if(isset($page_active) && $page_active === "photos"){?>
 					<li class="active"><a href="/photos">Gallery</a></li>
 					<?php } else {?>
 					<li class=""><a href="/photos">Gallery</a></li>
-				<?php }?>
+					<?php }?>
+
 					<li><a href="./gallery-single.html">Single gallery</a></li>
-					<li><a href="./blog.html">Blog</a></li>
-					<li><a href="/contact">Contact</a></li>
+
+					<?php if(isset($page_active) && $page_active === "blog"){?>
+					<li class="active"><a href="/blog">Blog</a></li>
+					<?php } else {?>
+					<li class=""><a href="/blog">Blog</a></li>
+					<?php }?>
+
+					<?php if(isset($page_active) && $page_active === "contact"){?>
+					<li class="active"><a href="/contact">Contact</a></li>
+					<?php } else {?>
+					<li class=""><a href="/contact">Contact</a></li>
+					<?php }?>
 				</ul>
 				<div class="social-links-warp">
 					<div class="social-links">
