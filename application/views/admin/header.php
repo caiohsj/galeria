@@ -1,4 +1,3 @@
-<?php //var_dump($_SESSION);var_dump($photographer);exit; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,7 +76,11 @@
                         </li>
                         <li>
                             <a href="photo">
-                                <i class="far fa-check-square"></i>Register Photo</a>
+                                <i class="far fa-check-square"></i>Cadastrar Foto</a>
+                        </li>
+                        <li>
+                            <a href="project">
+                                <i class="far fa-check-square"></i>Cadastrar Projeto</a>
                         </li>
                         <li>
                             <a href="chart.html">
@@ -189,7 +192,11 @@
                         </li>
                         <li>
                             <a href="photo">
-                                <i class="far fa-check-square"></i>Register Photo</a>
+                                <i class="far fa-check-square"></i>Cadastrar Foto</a>
+                        </li>
+                        <li>
+                            <a href="project">
+                                <i class="far fa-check-square"></i>Cadastrar Projeto</a>
                         </li>
                         <li>
                             <a href="chart.html">

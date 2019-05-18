@@ -7,6 +7,7 @@ class Admin extends CI_Controller
                 $this->load->model("users_model");
                 $this->load->model("photographers_model");
                 $this->load->model("photos_model");
+                $this->load->model("projects_model");
                 $this->load->model("posts_model");
                 $this->load->helper("url_helper");
         }
@@ -85,6 +86,8 @@ class Admin extends CI_Controller
 
 
                 $this->create_photo($option);
+
+                $this->create_project($option);
         }
 
         public function create_photo($option)
@@ -97,6 +100,7 @@ class Admin extends CI_Controller
                         {
                            //$this->load->view("admin/index");
                            header("location: /");
+                           exit;
                         }
                         else
                         {
@@ -121,6 +125,49 @@ class Admin extends CI_Controller
                                         //$data["alertSuccess"] = "Foto adicionada com sucesso";
                                         //$this->load->view("admin/photo", $data);
                                         header("location: photo");
+                                        exit;   
+                                }
+                                
+                        }
+                }
+        }
+
+        public function create_project($option)
+        {
+                if($option == "project")
+                {
+                        $this->form_validation->set_rules('title', 'Titulo', 'required');
+                        $this->form_validation->set_rules('description', 'Descrição', 'required');
+
+                        if ($this->form_validation->run() === FALSE)
+                        {
+                           //$this->load->view("admin/index");
+                           header("location: ../");
+                           exit;
+                        }
+                        else
+                        {
+                                $this->load->helper("url");
+                                $title = $this->input->post("title");
+                                $description = $this->input->post("description");
+                                $photo = $_FILES["photo"];
+
+                                
+                                $name_file = $this->upload_photo("application/views/res/site/img/",$photo);
+
+
+                                //Pegando valores dos inputs do formulario
+                                $values = [
+                                    "title" => $title,
+                                    "description" => $description,
+                                    "image" => $name_file
+                                ];
+
+                                if($this->projects_model->set_projects($values))
+                                {
+                                        //$data["alertSuccess"] = "Foto adicionada com sucesso";
+                                        //$this->load->view("admin/photo", $data);
+                                        header("location: project");
                                 }
                                 
                         }
@@ -183,7 +230,7 @@ class Admin extends CI_Controller
                                 $_SESSION["isphotographer"] = $user["isphotographer"];
 
                                 //Carregando a dashboard
-                                header("location: index");
+                                header("location: admin");
                         }
 
                         //$this->load->view("admin/login");
