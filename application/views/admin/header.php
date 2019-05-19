@@ -83,11 +83,15 @@
                                 <i class="far fa-check-square"></i>Cadastrar Projeto</a>
                         </li>
                         <li>
+                            <a href="projects">
+                                <i class="fas fa-table"></i>Projetos</a>
+                        </li>
+                        <li>
                             <a href="chart.html">
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li>
                         <li>
-                            <a href="table.html">
+                            <a href="table">
                                 <i class="fas fa-table"></i>Tables</a>
                         </li>
                         <li>
@@ -199,11 +203,15 @@
                                 <i class="far fa-check-square"></i>Cadastrar Projeto</a>
                         </li>
                         <li>
+                            <a href="projects">
+                                <i class="fas fa-table"></i>Projetos</a>
+                        </li>
+                        <li>
                             <a href="chart.html">
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li>
                         <li>
-                            <a href="table.html">
+                            <a href="table">
                                 <i class="fas fa-table"></i>Tables</a>
                         </li>
                         <li>

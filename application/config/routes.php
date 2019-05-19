@@ -54,6 +54,8 @@ $route['blog'] = 'blog';
 
 //$route['photos/create'] = 'photos/create';
 
+$route['admin/delete/project/(:any)'] = 'admin/delete/project/$1';
+
 $route['admin/create/(:any)'] = 'admin/create/$1';
 
 $route['admin/login'] = 'admin/login';

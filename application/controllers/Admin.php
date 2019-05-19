@@ -68,12 +68,32 @@ class Admin extends CI_Controller
                 //Array com dados do fotógrafo que foi buscado no banco; 
                 $data["photographer"] = $photographer;
 
+
+                if($page == "projects")
+                {
+                        $data["projects"] = $this->list_projects();
+                }
+
                 //$data["title"] = ucfirst($page); // Capitalize the first letter
 
                 $this->load->view("admin/header", $data);
                 $this->load->view("admin/".$page);
                 $this->load->view("admin/footer");
 	}
+
+        public function delete($option,$id)
+        {
+                if($option ==  "project")
+                {
+                        $values = ["id" => $id];
+                        $this->projects_model->delete_project($values);
+                }
+        }
+
+        public function list_projects()
+        {
+                return $this->projects_model->get_projects();
+        }
 
         public function create($option)
         {
@@ -230,7 +250,7 @@ class Admin extends CI_Controller
                                 $_SESSION["isphotographer"] = $user["isphotographer"];
 
                                 //Carregando a dashboard
-                                header("location: admin");
+                                header("location: ../admin/");
                         }
 
                         //$this->load->view("admin/login");
