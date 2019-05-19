@@ -29,7 +29,7 @@ class Projects_model extends CI_Model
 		
 	}
 
-	public function delete_project($data = array())
+	public function delete_projects($data = array())
 	{
 		return $this->db->delete("tb_projects", $data);
 	}

@@ -49,7 +49,7 @@
 							?>
 							<div class="post-meta">In photography</div>
 						</div>
-						<p>Ut pellentesque auctor lorem, at maximus lacus faucibus nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris auctor nunc non nulla euismod consequat. Pellentesque non mattis nulla. Fusce quis tempor risus, non elemen tum dui. Curabitur et mattis ex, a ultrices. Ut pellentesque auctor lorem, at maximus lacus faucibus nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
+						<p><?php echo $posts_item["description"]; ?></p>
 					</div>
 					<?php } ?>
 				</div>

@@ -73,19 +73,78 @@ class Admin extends CI_Controller
                 {
                         $data["projects"] = $this->list_projects();
                 }
-
-                //$data["title"] = ucfirst($page); // Capitalize the first letter
+                if($page == "posts")
+                {
+                        $data["posts"] = $this->list_posts();
+                }
 
                 $this->load->view("admin/header", $data);
                 $this->load->view("admin/".$page);
                 $this->load->view("admin/footer");
 	}
 
+        public function view_edit_post($id)
+        {
+                session_start();
+
+                if($this->verify_login() === false)
+                {
+                        header("location: login");
+                }
+
+                //Pegando id usuário da sessão
+                $values = [
+                        "fk_user" => $_SESSION["id_user"]
+                ];
+
+                //Faz o select o procurando o usuario acima($values)
+                $photographer = $this->photographers_model->get_photographers($values);
+
+                $_SESSION["id_photographer"] = $photographer["id"];
+
+                //Array com dados do fotógrafo que foi buscado no banco; 
+                $data["photographer"] = $photographer;
+
+                $values = ["id" => $id];
+
+                $data["post_item"] = $this->posts_model->get_posts($values);
+
+                $this->load->view("admin/edit-post", $data);
+        }
+
+        public function update($option,$id)
+        {
+                if($option == "post")
+                {
+                        $this->update_post($id);
+                }
+        }
+
+        public function update_post($id)
+        {
+                $where = ["id" => $id];
+
+                $values = [
+                        "title" => $this->input->post("title"),
+                        "description" => $this->input->post("description")
+                ];
+
+                if($this->posts_model->update_posts($values,$where))
+                {
+                        header("location: ../../posts");
+                        exit;
+                }
+        }
+
         public function delete($option,$id)
         {
                 if($option ==  "project")
                 {
                         $this->delete_project($id);
+                }
+                elseif($option == "post")
+                {
+                        $this->delete_post($id);
                 }
         }
 
@@ -97,10 +156,27 @@ class Admin extends CI_Controller
 
                 $image = $project["image"];
 
-                if($this->projects_model->delete_project($values))
+                if($this->projects_model->delete_projects($values))
                 {
                         $this->delete_file($image);
                         header("location: ../../projects");
+                        exit;
+                }
+        }
+
+        public function delete_post($id)
+        {
+                $values = ["id" => $id];
+                
+                $post = $this->posts_model->get_posts($values);
+
+                $image = $post["image"];
+
+                if($this->posts_model->delete_posts($values))
+                {
+                        $this->delete_file($image);
+                        header("location: ../../posts");
+                        exit;
                 }
         }
 
@@ -112,6 +188,11 @@ class Admin extends CI_Controller
         public function list_projects()
         {
                 return $this->projects_model->get_projects();
+        }
+
+        public function list_posts()
+        {
+                return $this->posts_model->get_posts();
         }
 
         public function create($option)
