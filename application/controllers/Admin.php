@@ -85,9 +85,27 @@ class Admin extends CI_Controller
         {
                 if($option ==  "project")
                 {
-                        $values = ["id" => $id];
-                        $this->projects_model->delete_project($values);
+                        $this->delete_project($id);
                 }
+        }
+
+        public function delete_project($id)
+        {
+                $values = ["id" => $id];
+                
+                $project = $this->projects_model->get_projects($values);
+
+                $image = $project["image"];
+
+                if($this->projects_model->delete_project($values))
+                {
+                        $this->delete_file($image);
+                }
+        }
+
+        public function delete_file($filename)
+        {
+                unlink($filename);
         }
 
         public function list_projects()
@@ -104,93 +122,91 @@ class Admin extends CI_Controller
                 $this->load->helper('form');
                 $this->load->library('form_validation');
 
-
-                $this->create_photo($option);
-
-                $this->create_project($option);
-        }
-
-        public function create_photo($option)
-        {
                 if($option == "photo")
                 {
-                        $this->form_validation->set_rules('name', 'Nome', 'required');
-
-                        if ($this->form_validation->run() === FALSE)
-                        {
-                           //$this->load->view("admin/index");
-                           header("location: /");
-                           exit;
-                        }
-                        else
-                        {
-                                $this->load->helper("url");
-                                $name = $this->input->post("name");
-                                $fk_photographer = $_SESSION["id_photographer"];
-                                $photo = $_FILES["photo"];
-
-                                
-                                $name_file = $this->upload_photo("application/views/res/site/img/gallery/",$photo);
-
-
-                                //Pegando valores dos inputs do formulario
-                                $values = [
-                                    "name" => $name,
-                                    "url" => $name_file,
-                                    "fk_photographer" => $fk_photographer
-                                ];
-
-                                if($this->photos_model->set_photos($values))
-                                {
-                                        //$data["alertSuccess"] = "Foto adicionada com sucesso";
-                                        //$this->load->view("admin/photo", $data);
-                                        header("location: photo");
-                                        exit;   
-                                }
-                                
-                        }
+                        $this->create_photo();
+                }
+                elseif($option == "project")
+                {
+                        $this->create_project($option);
                 }
         }
 
-        public function create_project($option)
+        public function create_photo()
         {
-                if($option == "project")
+                $this->form_validation->set_rules('name', 'Nome', 'required');
+
+                if ($this->form_validation->run() === FALSE)
                 {
-                        $this->form_validation->set_rules('title', 'Titulo', 'required');
-                        $this->form_validation->set_rules('description', 'Descrição', 'required');
+                        //$this->load->view("admin/index");
+                        header("location: /");
+                        exit;
+                }
+                else
+                {
+                        $this->load->helper("url");
+                        $name = $this->input->post("name");
+                        $fk_photographer = $_SESSION["id_photographer"];
+                        $photo = $_FILES["photo"];
 
-                        if ($this->form_validation->run() === FALSE)
+                                
+                        $name_file = $this->upload_photo("application/views/res/site/img/gallery/",$photo);
+
+
+                        //Pegando valores dos inputs do formulario
+                        $values = [
+                                "name" => $name,
+                                "url" => $name_file,
+                                "fk_photographer" => $fk_photographer
+                        ];
+
+                        if($this->photos_model->set_photos($values))
                         {
-                           //$this->load->view("admin/index");
-                           header("location: ../");
+                                //$data["alertSuccess"] = "Foto adicionada com sucesso";
+                                //$this->load->view("admin/photo", $data);
+                                header("location: photo");
+                                exit;   
+                        }
+                                
+                }
+        }
+
+        public function create_project()
+        {
+                $this->form_validation->set_rules('title', 'Titulo', 'required');
+                $this->form_validation->set_rules('description', 'Descrição', 'required');
+                
+                if ($this->form_validation->run() === FALSE)
+                {
+                        //$this->load->view("admin/index");
+                        header("location: ../");
                            exit;
-                        }
-                        else
+                }
+                else
+                {
+                        $this->load->helper("url");
+                        $title = $this->input->post("title");
+                        $description = $this->input->post("description");
+                        $photo = $_FILES["photo"];
+
+                                
+                        $name_file = $this->upload_photo("application/views/res/site/img/",$photo);
+
+
+                        //Pegando valores dos inputs do formulario
+                        $values = [
+                                "title" => $title,
+                                "description" => $description,
+                                "image" => $name_file
+                        ];
+
+                        if($this->projects_model->set_projects($values))
                         {
-                                $this->load->helper("url");
-                                $title = $this->input->post("title");
-                                $description = $this->input->post("description");
-                                $photo = $_FILES["photo"];
-
-                                
-                                $name_file = $this->upload_photo("application/views/res/site/img/",$photo);
-
-
-                                //Pegando valores dos inputs do formulario
-                                $values = [
-                                    "title" => $title,
-                                    "description" => $description,
-                                    "image" => $name_file
-                                ];
-
-                                if($this->projects_model->set_projects($values))
-                                {
-                                        //$data["alertSuccess"] = "Foto adicionada com sucesso";
-                                        //$this->load->view("admin/photo", $data);
-                                        header("location: project");
-                                }
-                                
+                                //$data["alertSuccess"] = "Foto adicionada com sucesso";
+                                //$this->load->view("admin/photo", $data);
+                                header("location: project");
                         }
+                                
                 }
         }
 
