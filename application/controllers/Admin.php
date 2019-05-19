@@ -100,6 +100,7 @@ class Admin extends CI_Controller
                 if($this->projects_model->delete_project($values))
                 {
                         $this->delete_file($image);
+                        header("location: ../../projects");
                 }
         }
 
@@ -128,7 +129,11 @@ class Admin extends CI_Controller
                 }
                 elseif($option == "project")
                 {
-                        $this->create_project($option);
+                        $this->create_project();
+                }
+                elseif($option == "post")
+                {
+                        $this->create_post();
                 }
         }
 
@@ -179,8 +184,8 @@ class Admin extends CI_Controller
                 if ($this->form_validation->run() === FALSE)
                 {
                         //$this->load->view("admin/index");
-                        header("location: ../");
-                           exit;
+                        header("location: ../projects");
+                        exit;
                 }
                 else
                 {
@@ -204,7 +209,54 @@ class Admin extends CI_Controller
                         {
                                 //$data["alertSuccess"] = "Foto adicionada com sucesso";
                                 //$this->load->view("admin/photo", $data);
-                                header("location: project");
+                                header("location: ../projects");
+                                exit;
+                        }
+                                
+                }
+        }
+
+        public function create_post()
+        {
+
+                $this->form_validation->set_rules('title', 'Titulo', 'required');
+                $this->form_validation->set_rules('description', 'Descrição', 'required');
+                
+                if ($this->form_validation->run() === FALSE)
+                {
+                        //$this->load->view("admin/index");
+                        header("location: ../posts");
+                        exit;
+                }
+                else
+                {
+                        $this->load->helper("url");
+                        $title = $this->input->post("title");
+                        $description = $this->input->post("description");
+                        $photo = $_FILES["photo"];
+
+                                
+                        $name_file = $this->upload_photo("application/views/res/site/img/blog/",$photo);
+
+                        date_default_timezone_set('America/Sao_Paulo');
+                        $dt_post = date("Y-m-d H:i:s");
+
+
+                        //Pegando valores dos inputs do formulario
+                        $values = [
+                                "title" => $title,
+                                "description" => $description,
+                                "dt_post" => $dt_post,
+                                "image" => $name_file,
+                                "fk_photographer" => $_SESSION["id_photographer"]
+                        ];
+
+                        if($this->posts_model->set_posts($values))
+                        {
+                                //$data["alertSuccess"] = "Foto adicionada com sucesso";
+                                //$this->load->view("admin/photo", $data);
+                                header("location: ../posts");
+                                exit;
                         }
                                 
                 }

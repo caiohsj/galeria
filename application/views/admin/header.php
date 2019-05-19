@@ -87,6 +87,14 @@
                                 <i class="fas fa-table"></i>Projetos</a>
                         </li>
                         <li>
+                            <a href="post">
+                                <i class="far fa-check-square"></i>Criar Post no Blog</a>
+                        </li>
+                        <li>
+                            <a href="posts">
+                                <i class="fas fa-table"></i>Blog / Posts</a>
+                        </li>
+                        <li>
                             <a href="chart.html">
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li>
@@ -205,6 +213,14 @@
                         <li>
                             <a href="projects">
                                 <i class="fas fa-table"></i>Projetos</a>
+                        </li>
+                        <li>
+                            <a href="post">
+                                <i class="far fa-check-square"></i>Criar Post no Blog</a>
+                        </li>
+                        <li>
+                            <a href="posts">
+                                <i class="fas fa-table"></i>Blog / Posts</a>
                         </li>
                         <li>
                             <a href="chart.html">
