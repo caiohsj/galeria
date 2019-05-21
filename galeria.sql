@@ -12,20 +12,20 @@ CREATE TABLE tb_photographers (
 	id int NOT NULL AUTO_INCREMENT,
 	name varchar(150) NOT NULL,
 	email varchar(255) NOT NULL,
-	phone int(12) NOT NULL,
+	phone varchar(11) NOT NULL,
 	dt_birthday date DEFAULT NULL,
 	fk_user int NOT NULL,
 	PRIMARY KEY(id),
 	FOREIGN KEY(fk_user) REFERENCES tb_users(id)
 );
 
-insert into tb_photographers(name,email,phone,dt_birthday,fk_user) values('Caio','caio@gmail.com',67996456959,'1998-07-05',1);
+insert into tb_photographers(name,email,phone,dt_birthday,fk_user) values('Caio','caio@gmail.com','67996456959','1998-07-05',1);
 
 CREATE TABLE tb_persons (
 	id int NOT NULL AUTO_INCREMENT,
 	name varchar(150) NOT NULL,
 	email varchar(255) NOT NULL,
-	phone int(11) NOT NULL,
+	phone varchar(11) NOT NULL,
 	gender varchar(1) NOT NULL,
 	dt_birthday date DEFAULT NULL,
 	fk_user int NOT NULL,
