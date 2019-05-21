@@ -26,8 +26,12 @@ class Photos_model extends CI_Model
 	{
 		
 		return $this->db->insert('tb_photos', $data);
-		//$sql = "INSERT INTO tb_photos(name,url,fk_photographer) VALUES(?,?,?)";
-		//$this->db->query($sql, $data);
+		
+	}
+
+	public function delete_photos($data = array())
+	{
+		return $this->db->delete('tb_photos', $data);
 	}
 }
 ?>

@@ -77,6 +77,10 @@ class Admin extends CI_Controller
                 {
                         $data["posts"] = $this->list_posts();
                 }
+                if($page == "photos")
+                {
+                        $data["photos"] = $this->list_photos();
+                }
 
                 $this->load->view("admin/header", $data);
                 $this->load->view("admin/".$page);
@@ -146,6 +150,10 @@ class Admin extends CI_Controller
                 {
                         $this->delete_post($id);
                 }
+                elseif($option == "photo")
+                {
+                        $this->delete_photo($id);
+                }
         }
 
         public function delete_project($id)
@@ -180,6 +188,22 @@ class Admin extends CI_Controller
                 }
         }
 
+        public function delete_photo($id)
+        {
+                $values = ["id" => $id];
+                
+                $post = $this->photos_model->get_photos($values);
+
+                $image = $post["image"];
+
+                if($this->photos_model->delete_photos($values))
+                {
+                        $this->delete_file($image);
+                        header("location: ../../photos");
+                        exit;
+                }
+        }
+
         public function delete_file($filename)
         {
                 unlink($filename);
@@ -193,6 +217,11 @@ class Admin extends CI_Controller
         public function list_posts()
         {
                 return $this->posts_model->get_posts();
+        }
+
+        public function list_photos()
+        {
+                return $this->photos_model->get_photos();
         }
 
         public function create($option)
