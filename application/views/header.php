@@ -70,8 +70,6 @@
 					<li class=""><a href="/gallery">Gallery</a></li>
 					<?php }?>
 
-					<li><a href="./gallery-single.html">Single gallery</a></li>
-
 					<?php if(isset($page_active) && $page_active === "blog"){?>
 					<li class="active"><a href="/blog">Blog</a></li>
 					<?php } else {?>
