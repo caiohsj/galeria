@@ -57,10 +57,10 @@ CREATE TABLE tb_photos (
 	FOREIGN KEY(fk_photographer) REFERENCES tb_photographers(id)
 );
 
-insert into tb_photos(nome,url,fk_photographer) values("Cervo","application/views/res/site/img/gallery/1.jpg",1);
-insert into tb_photos(nome,url,fk_photographer) values("Cervo","application/views/res/site/img/gallery/2.jpg",1);
-insert into tb_photos(nome,url,fk_photographer) values("Cervo","application/views/res/site/img/gallery/3.jpg",1);
-insert into tb_photos(nome,url,fk_photographer) values("Cervo","application/views/res/site/img/gallery/4.jpg",1);
+insert into tb_photos(nome,url,fk_photographer) values("Cachorro","application/views/res/site/img/gallery/1.jpg",1);
+insert into tb_photos(nome,url,fk_photographer) values("Lagarto","application/views/res/site/img/gallery/2.jpg",1);
+insert into tb_photos(nome,url,fk_photographer) values("Torre","application/views/res/site/img/gallery/3.jpg",1);
+insert into tb_photos(nome,url,fk_photographer) values("Neve","application/views/res/site/img/gallery/4.jpg",1);
 
 CREATE TABLE tb_photos_galleries (
 	fk_photo int NOT NULL,
@@ -138,4 +138,15 @@ values(
         "2019-05-18 18:06:35",
         "application/views/res/site/img/blog/2.jpg",
         1
+);
+
+CREATE TABLE tb_messages (
+	id int NOT NULL AUTO_INCREMENT,
+    name varchar(100) NOT NULL,
+    email varchar(255) NOT NULL,
+    subject varchar(50) NOT NULL,
+    message text NOT NULL,
+    dt_message timestamp NOT NULL,
+    status tinyint(1) DEFAULT 0,
+    PRIMARY KEY(id)
 );

@@ -9,6 +9,7 @@ class Admin extends CI_Controller
                 $this->load->model("photos_model");
                 $this->load->model("projects_model");
                 $this->load->model("posts_model");
+                $this->load->model("messages_model");
                 $this->load->helper("url_helper");
         }
 
@@ -68,6 +69,8 @@ class Admin extends CI_Controller
                 //Array com dados do fotógrafo que foi buscado no banco; 
                 $data["photographer"] = $photographer;
 
+                $data["messages"] = $this->list_messages();
+
 
                 if($page == "projects")
                 {
@@ -80,6 +83,10 @@ class Admin extends CI_Controller
                 if($page == "photos")
                 {
                         $data["photos"] = $this->list_photos();
+                }
+                if($page == "messages")
+                {
+                        $data["messages"] = $this->list_messages();
                 }
 
                 $this->load->view("admin/header", $data);
@@ -222,6 +229,11 @@ class Admin extends CI_Controller
         public function list_photos()
         {
                 return $this->photos_model->get_photos();
+        }
+
+        public function list_messages()
+        {
+                return $this->messages_model->get_messages();
         }
 
         public function create($option)

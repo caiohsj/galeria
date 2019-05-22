@@ -7,6 +7,7 @@ class Pages extends CI_Controller
                 $this->load->model("projects_model");
                 $this->load->model("photos_model");
                 $this->load->model("configs_model");
+                $this->load->model("messages_model");
         }
 	
 	public function view($page = "home")
@@ -38,9 +39,42 @@ class Pages extends CI_Controller
                 $this->load->view("footer", $data);
         }
 
-        public function list_photos()
+        public function send_message()
         {
+                $this->load->library('form_validation');
 
+                $this->form_validation->set_rules('name', 'Nome', 'required');
+                $this->form_validation->set_rules('email', 'Email', 'required');
+                $this->form_validation->set_rules('subject', 'Assunto', 'required');
+                $this->form_validation->set_rules('message', 'Mensagem', 'required');
+
+                if ($this->form_validation->run() === FALSE)
+                {
+                        echo "Preencha";
+                }
+                else
+                {
+                        $name = $this->input->post("name");
+                        $email = $this->input->post("email");
+                        $subject = $this->input->post("subject");
+                        $message = $this->input->post("message");
+
+                        $dt_message = date("Y-m-d H:i:s");
+
+                        $values = [
+                                "name" => $name,
+                                "email" => $email,
+                                "subject" => $subject,
+                                "message" => $message,
+                                "dt_message" => $dt_message
+                        ];
+
+                        if($this->messages_model->set_messages($values))
+                        {
+                                echo "enviado";
+                        }
+                        
+                }
         }
 
         public function mask_phone($phone)

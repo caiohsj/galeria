@@ -68,6 +68,8 @@ $route['admin/logout'] = 'admin/logout';
 $route['admin'] = 'admin';
 $route['admin/(:any)'] = 'admin/view/$1';
 
+$route['send'] = 'pages/send_message';
+
 $route['default_controller'] = 'pages/view';
 $route['(:any)'] = 'pages/view/$1';
 

@@ -6,11 +6,11 @@
 						<div class="contact-text">
 							<span>Say hello</span>
 							<h2>Get in touch</h2>
-							<form class="contact-form">
-								<input type="text" placeholder="Your name">
-								<input type="text" placeholder="Your email">
-								<input type="text" placeholder="Subject">
-								<textarea placeholder="Message"></textarea>
+							<form action="send" class="contact-form" method="post">
+								<input type="text" placeholder="Your name" name="name">
+								<input type="text" placeholder="Your email" name="email">
+								<input type="text" placeholder="Subject" name="subject">
+								<textarea placeholder="Message" name="message"></textarea>
 								<button class="site-btn">Send message</button>
 							</form>
 							<div class="contac-info">
