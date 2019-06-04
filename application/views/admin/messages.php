@@ -26,7 +26,7 @@
                                                     ?>
                                                         
                                                 </td>
-                                                <td><a href="#"><i class="fas fa-minus-circle"></i></a></td>
+                                                <td><a href="delete/message/<?php echo $messages_item['id']; ?>"><i class="fas fa-minus-circle" onclick="return confirm('Deseja realmente excluir?');"></i></a></td>
                                             </tr>
                                             <?php } ?>
                                         </tbody>

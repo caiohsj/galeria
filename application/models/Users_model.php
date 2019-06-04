@@ -21,5 +21,10 @@ class Users_model extends CI_Model
 		$query = $this->db->get_where("tb_users", $data);
 		return $query->row_array();
 	}
+
+	public function count_messages()
+	{
+		
+	}
 }
 ?>

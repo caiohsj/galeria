@@ -35,6 +35,8 @@ class Admin extends CI_Controller
                 //Array com dados do fotógrafo que foi buscado no banco; 
                 $data["photographer"] = $photographer;
 
+                $data["messages"] = $this->list_messages();
+
                 $this->load->view("admin/header", $data);
                 $this->load->view("admin/index", $data);
                 $this->load->view("admin/footer", $data);
@@ -161,6 +163,10 @@ class Admin extends CI_Controller
                 {
                         $this->delete_photo($id);
                 }
+                elseif($option == "message")
+                {
+                        $this->delete_message($id);
+                }
         }
 
         public function delete_project($id)
@@ -207,6 +213,19 @@ class Admin extends CI_Controller
                 {
                         $this->delete_file($image);
                         header("location: ../../photos");
+                        exit;
+                }
+        }
+
+        public function delete_message($id)
+        {
+                $values = ["id" => $id];
+                
+                $message = $this->messages_model->get_messages($values);
+
+                if($this->messages_model->delete_messages($values))
+                {
+                        header("location: ../../messages");
                         exit;
                 }
         }

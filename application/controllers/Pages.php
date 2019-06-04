@@ -71,7 +71,7 @@ class Pages extends CI_Controller
 
                         if($this->messages_model->set_messages($values))
                         {
-                                echo "enviado";
+                                header("location: contact");
                         }
                         
                 }

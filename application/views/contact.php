@@ -4,6 +4,9 @@
 				<div class="row">
 					<div class="col-xl-6 p-0">
 						<div class="contact-text">
+							<?php if(isset($msg_success)){ ?>
+							<div class="alert alert-success">Mensagem enviada</div>
+							<?php } ?>
 							<span>Say hello</span>
 							<h2>Get in touch</h2>
 							<form action="send" class="contact-form" method="post">
