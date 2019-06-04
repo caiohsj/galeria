@@ -25,13 +25,18 @@ class Messages_model extends CI_Model
 	public function set_messages($data = array())
 	{
 		
-		return $this->db->insert('tb_messages', $data);
+		return $this->db->insert("tb_messages", $data);
 		
 	}
 
 	public function delete_messages($data = array())
 	{
-		return $this->db->delete('tb_messages', $data);
+		return $this->db->delete("tb_messages", $data);
+	}
+
+	public function count_all_messages()
+	{
+		return $this->db->count_all("tb_messages");
 	}
 }
 ?>
