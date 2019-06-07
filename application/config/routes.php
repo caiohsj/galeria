@@ -54,6 +54,8 @@ $route['blog'] = 'blog';
 
 $route['admin/post/(:any)'] = 'admin/view_edit_post/$1';
 
+$route['admin/message/(:any)'] = 'admin/view_message/$1';
+
 $route['admin/update/(:any)/(:any)'] = 'admin/update/$1/$2';
 
 $route['admin/delete/(:any)/(:any)'] = 'admin/delete/$1/$2';
@@ -61,6 +63,8 @@ $route['admin/delete/(:any)/(:any)'] = 'admin/delete/$1/$2';
 $route['admin/create/(:any)'] = 'admin/create/$1';
 
 $route['admin/login'] = 'admin/login';
+
+
 
 //Rota do logout
 $route['admin/logout'] = 'admin/logout';

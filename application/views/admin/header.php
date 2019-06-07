@@ -159,20 +159,38 @@
                                                     ?>
                                                 </p>
                                             </div>
-                                            <?php foreach($messages as $messages_item){ ?>
+                                            <?php
+                                            if($number_news_messages > 0)
+                                            {
+                                            foreach($news_messages as $news_messages_item){
+                                            //Formatando a data
+                                            $date = $news_messages_item["dt_message"];
+
+                                            $dt = explode(" ", $date);
+
+                                            $date_non_formated = explode("-", $dt[0]);
+
+                                            $date_formated = $date_non_formated[2]."/".$date_non_formated[1]."/".$date_non_formated[0];
+
+                                            $time = $dt[1];
+
+                                            $date_formated = $date_formated." às ".$time;
+                                            //Fim da formatação
+
+                                            ?>
                                             <a href="#"><div class="mess__item">
                                                 <div class="image img-cir img-40">
                                                     <img src="../application/views/res/admin/images/icon/perfil-default.png" alt="Michelle Moreno" />
                                                 </div>
                                                 <div class="content">
-                                                    <h6><?php echo $messages_item["name"]; ?></h6>
-                                                    <p>Have sent a photo</p>
-                                                    <span class="time">3 min ago</span>
+                                                    <h6><?php echo $news_messages_item["name"]; ?></h6>
+                                                    <p>Enviou uma mensagem</p>
+                                                    <span class="time"><?php echo $date_formated; ?></span>
                                                 </div>
                                             </div></a>
-                                            <?php } ?>
+                                            <?php }} ?>
                                             <div class="mess__footer">
-                                                <a href="messages">View all messages</a>
+                                                <a href="messages">Ver todas as mensagens</a>
                                             </div>
                                         </div>
                                     </div>

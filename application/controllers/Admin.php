@@ -27,7 +27,7 @@ class Admin extends CI_Controller
                         "fk_user" => $_SESSION["id_user"]
                 ];
 
-                //Faz o select o procurando o usuario acima($values)
+                //Faz o select o procurando o usuario(administrador) acima($values)
                 $photographer = $this->photographers_model->get_photographers($values);
 
                 $_SESSION["id_photographer"] = $photographer["id"];
@@ -35,7 +35,7 @@ class Admin extends CI_Controller
                 //Array com dados do fotógrafo que foi buscado no banco; 
                 $data["photographer"] = $photographer;
 
-                $data["messages"] = $this->list_messages();
+                $data["news_messages"] = $this->list_new_messages();
 
                 $data["number_news_messages"] = $this->messages_model->count_new_messages();
 
@@ -65,7 +65,7 @@ class Admin extends CI_Controller
                         "fk_user" => $_SESSION["id_user"]
                 ];
 
-                //Faz o select o procurando o usuario acima($values)
+                //Faz o select o procurando o usuario(administrador) acima($values)
                 $photographer = $this->photographers_model->get_photographers($values);
 
                 $_SESSION["id_photographer"] = $photographer["id"];
@@ -73,7 +73,7 @@ class Admin extends CI_Controller
                 //Array com dados do fotógrafo que foi buscado no banco; 
                 $data["photographer"] = $photographer;
 
-                $data["messages"] = $this->list_messages();
+                $data["news_messages"] = $this->list_new_messages();
 
                 $data["number_news_messages"] = $this->messages_model->count_new_messages();
 
@@ -100,6 +100,42 @@ class Admin extends CI_Controller
                 $this->load->view("admin/footer");
 	}
 
+        public function view_message($id)
+        {
+            session_start();
+
+            if($this->verify_login() === false)
+            {
+                header("location: login");
+            }
+
+            //Pegando id usuário da sessão
+            $values = [
+                    "fk_user" => $_SESSION["id_user"]
+            ];
+
+            //Faz o select o procurando o usuario(administrador) acima($values)
+            $photographer = $this->photographers_model->get_photographers($values);
+
+            $_SESSION["id_photographer"] = $photographer["id"];
+
+            //Array com dados do fotógrafo que foi buscado no banco; 
+            $data["photographer"] = $photographer;
+
+            $data["news_messages"] = $this->list_new_messages();
+
+            $data["number_news_messages"] = $this->messages_model->count_new_messages();
+
+            $values = ["id" => $id];
+
+            $data["message_item"] = $this->messages_model->get_messages($values);
+
+            //Colocando a mensagem como visualizada
+            $this->messages_model->set_message_visualized($values);
+
+            $this->load->view("admin/message", $data);
+        }
+
         public function view_edit_post($id)
         {
                 session_start();
@@ -114,13 +150,17 @@ class Admin extends CI_Controller
                         "fk_user" => $_SESSION["id_user"]
                 ];
 
-                //Faz o select o procurando o usuario acima($values)
+                //Faz o select o procurando o usuario(administrador) acima($values)
                 $photographer = $this->photographers_model->get_photographers($values);
 
                 $_SESSION["id_photographer"] = $photographer["id"];
 
                 //Array com dados do fotógrafo que foi buscado no banco; 
                 $data["photographer"] = $photographer;
+
+                $data["news_messages"] = $this->list_new_messages();
+
+                $data["number_news_messages"] = $this->messages_model->count_new_messages();
 
                 $values = ["id" => $id];
 
@@ -257,6 +297,25 @@ class Admin extends CI_Controller
         public function list_messages()
         {
                 return $this->messages_model->get_messages();
+        }
+
+        public function list_new_messages()
+        {
+                $values = ["status" => 0];
+                return $this->messages_model->get_news_messages($values);
+        }
+
+        public function dt_format($date)
+        {
+            $dt = substr($date, " ");
+
+            $date_non_formated = substr($dt[0], "-");
+
+            $date_formated = $date_non_formated[2]."/".$date_non_formated[1]."/".$date_non_formated[0];
+
+            $time = $dt[1];
+
+            return $date_formated." às ".$time;
         }
 
         public function create($option)
@@ -452,10 +511,10 @@ class Admin extends CI_Controller
                                 "password" => $this->input->post("password")
                         ];
 
-                        //Faz o select o procurando o usuario acima($values)
+                        //Faz o select o procurando o usuario(administrador) acima($values)
                         $user = $this->users_model->get_users($values);
 
-                        //Se o usuario foi encontrado
+                        //Se o usuario(administrador) foi encontrado
                         if(empty($user) === false)
                         {
                                 $_SESSION["id_user"] = $user["id"];
@@ -472,6 +531,7 @@ class Admin extends CI_Controller
                 
         }
 
+        //Função que verifica se administrador está logado
         public function verify_login()
         {
 

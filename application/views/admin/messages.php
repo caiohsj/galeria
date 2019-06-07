@@ -12,7 +12,7 @@
                                         <tbody>
                                             <?php foreach($messages as $messages_item){ ?>
                                             <tr>
-                                                <td><?php echo $messages_item["name"]; ?></td>
+                                                <td><a href="message/<?php echo $messages_item['id']; ?>"><?php echo $messages_item["name"]; ?></a></td>
                                                 <td>
                                                     <?php 
                                                     if($messages_item["status"] == 0)

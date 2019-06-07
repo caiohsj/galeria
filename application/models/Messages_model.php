@@ -22,6 +22,14 @@ class Messages_model extends CI_Model
 		return $query->row_array();
 	}
 
+	public function get_news_messages($data = array())
+	{
+		$this->db->where($data);
+		$this->db->limit(3);
+		$query = $this->db->get("tb_messages");
+		return $query->result_array();
+	}
+
 	public function set_messages($data = array())
 	{
 		
@@ -39,6 +47,12 @@ class Messages_model extends CI_Model
 		$where = ["status" => 0];
 		$this->db->where($where);
 		return $this->db->count_all_results("tb_messages");
+	}
+
+	public function set_message_visualized($where = array())
+	{
+		$data = ["status" => 1];
+		return $this->db->update("tb_messages", $data, $where);
 	}
 }
 ?>
