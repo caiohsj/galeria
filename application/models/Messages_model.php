@@ -34,9 +34,11 @@ class Messages_model extends CI_Model
 		return $this->db->delete("tb_messages", $data);
 	}
 
-	public function count_all_messages()
+	public function count_new_messages()
 	{
-		return $this->db->count_all("tb_messages");
+		$where = ["status" => 0];
+		$this->db->where($where);
+		return $this->db->count_all_results("tb_messages");
 	}
 }
 ?>

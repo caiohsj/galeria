@@ -37,6 +37,8 @@ class Admin extends CI_Controller
 
                 $data["messages"] = $this->list_messages();
 
+                $data["number_news_messages"] = $this->messages_model->count_new_messages();
+
                 $this->load->view("admin/header", $data);
                 $this->load->view("admin/index", $data);
                 $this->load->view("admin/footer", $data);
@@ -72,6 +74,8 @@ class Admin extends CI_Controller
                 $data["photographer"] = $photographer;
 
                 $data["messages"] = $this->list_messages();
+
+                $data["number_news_messages"] = $this->messages_model->count_new_messages();
 
 
                 if($page == "projects")

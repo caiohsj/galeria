@@ -144,10 +144,20 @@
                                 <div class="noti-wrap">
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-comment-more"></i>
-                                        <span class="quantity">1</span>
+                                        <span class="quantity"><?php echo $number_news_messages; ?></span>
                                         <div class="mess-dropdown js-dropdown">
                                             <div class="mess__title">
-                                                <p>You have 2 news message</p>
+                                                <p><?php 
+                                                    if($number_news_messages > 0)
+                                                    {
+                                                        echo "Você possui ".$number_news_messages." novas mensagens";
+                                                    }
+                                                    else
+                                                    {
+                                                        echo "Você não possui novas mensagens";
+                                                    }
+                                                    ?>
+                                                </p>
                                             </div>
                                             <?php foreach($messages as $messages_item){ ?>
                                             <a href="#"><div class="mess__item">
