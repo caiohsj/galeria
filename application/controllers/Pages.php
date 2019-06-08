@@ -80,9 +80,21 @@ class Pages extends CI_Controller
         public function mask_phone($phone)
         {
                 $phone_with_mask = "(".$phone[0].$phone[1].") ";
-                $phone_with_mask = $phone_with_mask.$phone[2].$phone[3].$phone[4].$phone[5].$phone[6];
-                $phone_with_mask = $phone_with_mask."-";
-                $phone_with_mask = $phone_with_mask.$phone[7].$phone[8].$phone[9].$phone[10];
+                
+
+                if(strlen($phone) > 10)
+                {
+                        $phone_with_mask = $phone_with_mask.$phone[2].$phone[3].$phone[4].$phone[5].$phone[6];
+                        $phone_with_mask = $phone_with_mask."-";
+                        $phone_with_mask = $phone_with_mask.$phone[7].$phone[8].$phone[9].$phone[10];
+                }
+                else
+                {
+                        $phone_with_mask = $phone_with_mask.$phone[2].$phone[3].$phone[4].$phone[5];
+                        $phone_with_mask = $phone_with_mask."-";
+                        $phone_with_mask = $phone_with_mask.$phone[6].$phone[7].$phone[8].$phone[9];
+                }
+                
                 return $phone_with_mask;
         }
 }
