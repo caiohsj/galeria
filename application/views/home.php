@@ -10,15 +10,15 @@
 						<span>Photography</span>
 						<h2><?php echo $projects_item["title"]; ?></h2>
 						<p><?php echo $projects_item["description"]; ?></p>
-						<a href="" class="site-btn">Read More</a>
+						<a href="" class="site-btn">Ler mais</a>
 					</div>
 					<?php if($i == $quantity_projects-1){ ?>
 					<div class="next-slide-show set-bg" data-setbg="<?php echo $projects[0]['image']; ?>">
-						<a href="#project0" class="ns-btn">Next</a>
+						<a href="#project0" class="ns-btn">Próximo</a>
 					</div>
 					<?php } else { ?>
 					<div class="next-slide-show set-bg" data-setbg="<?php echo $projects[$i+1]['image']; ?>">
-						<a href="#project<?php echo $i+1; ?>" class="ns-btn">Next</a>
+						<a href="#project<?php echo $i+1; ?>" class="ns-btn">Próximo</a>
 					</div>
 					<?php } ?>
 				</div>

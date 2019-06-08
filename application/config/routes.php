@@ -65,7 +65,6 @@ $route['admin/create/(:any)'] = 'admin/create/$1';
 $route['admin/login'] = 'admin/login';
 
 
-
 //Rota do logout
 $route['admin/logout'] = 'admin/logout';
 

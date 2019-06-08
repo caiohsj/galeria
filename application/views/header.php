@@ -65,9 +65,9 @@
 					<?php }?>
 
 					<?php if(isset($page_active) && $page_active === "gallery"){?>
-					<li class="active"><a href="/gallery">Gallery</a></li>
+					<li class="active"><a href="/gallery">Galeria</a></li>
 					<?php } else {?>
-					<li class=""><a href="/gallery">Gallery</a></li>
+					<li class=""><a href="/gallery">Galeria</a></li>
 					<?php }?>
 
 					<?php if(isset($page_active) && $page_active === "blog"){?>
@@ -77,9 +77,9 @@
 					<?php }?>
 
 					<?php if(isset($page_active) && $page_active === "contact"){?>
-					<li class="active"><a href="/contact">Contact</a></li>
+					<li class="active"><a href="/contact">Contato</a></li>
 					<?php } else {?>
-					<li class=""><a href="/contact">Contact</a></li>
+					<li class=""><a href="/contact">Contato</a></li>
 					<?php }?>
 				</ul>
 				<div class="social-links-warp">

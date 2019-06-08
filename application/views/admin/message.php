@@ -183,9 +183,9 @@
                                                     <img src="../../application/views/res/admin/images/icon/perfil-default.png" alt="Michelle Moreno" />
                                                 </div>
                                                 <div class="content">
-                                                    <h6><?php echo $news_messages_item["name"]; ?></h6>
+                                                    <a href="../message/<?php echo $news_messages_item["id"]; ?>"><h6><?php echo $news_messages_item["name"]; ?></h6>
                                                     <p>Enviou uma mensagem</p>
-                                                    <span class="time"><?php echo $date_formated; ?></span>
+                                                    <span class="time"><?php echo $date_formated; ?></span></a>
                                                 </div>
                                             </div></a>
                                             <?php }} ?>
@@ -195,27 +195,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-notifications"></i>
-                                        <span class="quantity">0</span>
-                                        <div class="notifi-dropdown js-dropdown">
-                                            <div class="notifi__title">
-                                                <p>Você não tem notificações</p>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c1 img-cir img-40">
-                                                    <i class="zmdi zmdi-email-open"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>...</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__footer">
-                                                <a href="#">All notifications</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
@@ -241,11 +221,11 @@
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
+                                                    <a href="../account">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
+                                                    <a href="../setting">
                                                         <i class="zmdi zmdi-settings"></i>Setting</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
@@ -292,6 +272,8 @@
                             <?php echo $message_item["message"]; ?>
                           </div>
                           <b><?php echo $message_item["name"]; ?></b>
+                            <br>
+                            <strong><?php echo $date_formated; ?></strong>
                             <br>
                             <a href="mailto"><?php echo $message_item["email"]; ?></a>
                         </div>
