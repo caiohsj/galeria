@@ -7,14 +7,14 @@
 							<?php if(isset($msg_success)){ ?>
 							<div class="alert alert-success">Mensagem enviada</div>
 							<?php } ?>
-							<span>Say hello</span>
-							<h2>Get in touch</h2>
+							<span>Diga Olá</span>
+							<h2>Entrar em contato</h2>
 							<form action="send" class="contact-form" method="post">
-								<input type="text" placeholder="Your name" name="name">
-								<input type="text" placeholder="Your email" name="email">
-								<input type="text" placeholder="Subject" name="subject">
-								<textarea placeholder="Message" name="message"></textarea>
-								<button class="site-btn">Send message</button>
+								<input type="text" placeholder="Seu nome" name="name">
+								<input type="text" placeholder="Seu email" name="email">
+								<input type="text" placeholder=Assunto name="subject">
+								<textarea placeholder="Mensagem" name="message"></textarea>
+								<button class="site-btn">Enviar mensagem</button>
 							</form>
 							<div class="contac-info">
 								<p><?php echo $configs["street"]; ?>, Nº <?php echo $configs["number"]; ?>, <?php echo $configs["city"]; ?> - <?php echo $configs["state"]; ?></p>

@@ -22,11 +22,9 @@ class Configs_model extends CI_Model
 		return $query->row_array();
 	}
 
-	public function update_configs($data = array())
+	public function update_configs($data = array(), $where = array())
 	{
-		
-		return $this->db->update("tb_configs", $data);
-		
+		return $this->db->update("tb_configs", $data, $where);	
 	}
 
 }

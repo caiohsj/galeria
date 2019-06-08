@@ -10,6 +10,7 @@ class Admin extends CI_Controller
                 $this->load->model("projects_model");
                 $this->load->model("posts_model");
                 $this->load->model("messages_model");
+                $this->load->model("configs_model");
                 $this->load->helper("url_helper");
         }
 
@@ -94,6 +95,18 @@ class Admin extends CI_Controller
                 {
                         $data["messages"] = $this->list_messages();
                 }
+                if($page == "setting")
+                {
+                    $configs = $this->configs_model->get_configs();
+
+                    $data["configs"] = $configs[0];
+                }
+                if($page == "logo")
+                {
+                    $configs = $this->configs_model->get_configs();
+
+                    $data["configs"] = $configs[0];
+                }
 
                 $this->load->view("admin/header", $data);
                 $this->load->view("admin/".$page);
@@ -173,7 +186,17 @@ class Admin extends CI_Controller
         {
                 if($option == "post")
                 {
-                        $this->update_post($id);
+                    $this->update_post($id);
+                }
+
+                if($option == "setting")
+                {
+                    $this->update_configs($id);
+                }
+
+                if($option == "logo")
+                {
+                    $this->update_configs_logo($id);
                 }
         }
 
@@ -189,6 +212,55 @@ class Admin extends CI_Controller
                 if($this->posts_model->update_posts($values,$where))
                 {
                         header("location: ../../posts");
+                        exit;
+                }
+        }
+
+        public function update_configs($id)
+        {
+                $where = ["id" => $id];
+
+                $values = [
+                        "phone" => $this->input->post("phone"),
+                        "email" => $this->input->post("email"),
+                        "street" => $this->input->post("street"),
+                        "district" => $this->input->post("district"),
+                        "number" => $this->input->post("number"),
+                        "city" => $this->input->post("city"),
+                        "state" => $this->input->post("state"),
+                        "zipcode" => $this->input->post("zipcode")
+                ];
+
+                if($this->configs_model->update_configs($values,$where))
+                {
+                        header("location: ../../setting");
+                        exit;
+                }
+        }
+
+        public function update_configs_logo($id)
+        {
+                $where = ["id" => $id];
+
+                $configs = $this->configs_model->get_configs();
+
+                $configs_logo = $configs[0]["logo"];
+
+                //Se a logo existe então é excluida
+                if(file_exists($configs_logo))
+                {
+                    unlink($configs_logo);
+                }
+
+                $logo = $this->upload_logo("application/views/res/site/img/",$_FILES["photo"]);
+
+                $values = [
+                        "logo" => $logo
+                ];
+
+                if($this->configs_model->update_configs($values,$where))
+                {
+                        header("location: ../../logo");
                         exit;
                 }
         }
@@ -473,6 +545,24 @@ class Admin extends CI_Controller
                 date_default_timezone_set('America/Sao_Paulo'); // definir fuso horario
                 $dateAndTime = date('dmYHi'); // pegar data e hora do servidor
                 $name_file = $url . $dateAndTime . $input_file["name"]; // definir pasta e nome do arquivo no servidor
+                $name_file_tmp = $input_file["tmp_name"]; // pegar nome do arquivo temporario no servidor
+                $msgErroArquivo = ""; // definir msg de erro vazia
+                if(move_uploaded_file($name_file_tmp, $name_file)==false)
+                { // se ocorrer erro...
+                    $msgErroArquivo = "Arquivo não pode ser enviado."; // define msg de erro
+                }
+                else
+                {
+                        return $name_file;
+                }
+
+                //fim upload do arquivo
+        }
+
+        public function upload_logo($url, $input_file)
+        {
+                //upload do arquivo 
+                $name_file = $url.$input_file["name"]; // definir pasta e nome do arquivo no servidor
                 $name_file_tmp = $input_file["tmp_name"]; // pegar nome do arquivo temporario no servidor
                 $msgErroArquivo = ""; // definir msg de erro vazia
                 if(move_uploaded_file($name_file_tmp, $name_file)==false)
