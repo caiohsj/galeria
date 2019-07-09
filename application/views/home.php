@@ -10,7 +10,7 @@
 						<span>Photography</span>
 						<h2><?php echo $projects_item["title"]; ?></h2>
 						<p><?php echo $projects_item["description"]; ?></p>
-						<a href="" class="site-btn">Ler mais</a>
+						<!-- <a href="" class="site-btn">Ler mais</a> -->
 					</div>
 					<?php if($i == $quantity_projects-1){ ?>
 					<div class="next-slide-show set-bg" data-setbg="<?php echo $projects[0]['image']; ?>">

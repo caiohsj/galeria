@@ -36,8 +36,10 @@ class Admin extends CI_Controller
                 //Array com dados do fotógrafo que foi buscado no banco; 
                 $data["photographer"] = $photographer;
 
+                //Array com dados das novas messagens, mensagens não visualizadas
                 $data["news_messages"] = $this->list_new_messages();
 
+                //Quantidade de novas mensagens, mensagens não visualizadas
                 $data["number_news_messages"] = $this->messages_model->count_new_messages();
 
                 $this->load->view("admin/header", $data);
@@ -220,6 +222,7 @@ class Admin extends CI_Controller
         {
                 $where = ["id" => $id];
 
+                //Inserindo no array os dados recebidos do formulário via POST
                 $values = [
                         "phone" => $this->input->post("phone"),
                         "email" => $this->input->post("email"),
@@ -346,6 +349,7 @@ class Admin extends CI_Controller
                 }
         }
 
+        //Função que deleta um arquivo no servidor
         public function delete_file($filename)
         {
                 unlink($filename);

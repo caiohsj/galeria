@@ -6,6 +6,7 @@
                                             <tr>
                                                 <th>Nome</th>
                                                 <th></th>
+                                                <th>Data</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -24,8 +25,26 @@
                                                         echo "Mensagem lida";
                                                     }
                                                     ?>
+
+                                                    <?php 
+                                                    //Formatando a data
+                                                    $date = $messages_item["dt_message"];
+
+                                                    $dt = explode(" ", $date);
+
+                                                    $date_non_formated = explode("-", $dt[0]);
+
+                                                    $date_formated = $date_non_formated[2]."/".$date_non_formated[1]."/".$date_non_formated[0];
+
+                                                    $time = $dt[1];
+
+                                                    $date_formated = $date_formated." às ".$time;
+                                                    //Fim da formatação
+
+                                                    ?>
                                                         
                                                 </td>
+                                                <td><?php echo $date_formated; ?></td>
                                                 <td><a href="delete/message/<?php echo $messages_item['id']; ?>"><i class="fas fa-minus-circle" onclick="return confirm('Deseja realmente excluir?');"></i></a></td>
                                             </tr>
                                             <?php } ?>

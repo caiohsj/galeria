@@ -57,10 +57,10 @@ CREATE TABLE tb_photos (
 	FOREIGN KEY(fk_photographer) REFERENCES tb_photographers(id)
 );
 
-insert into tb_photos(nome,url,fk_photographer) values("Cachorro","application/views/res/site/img/gallery/1.jpg",1);
-insert into tb_photos(nome,url,fk_photographer) values("Lagarto","application/views/res/site/img/gallery/2.jpg",1);
-insert into tb_photos(nome,url,fk_photographer) values("Torre","application/views/res/site/img/gallery/3.jpg",1);
-insert into tb_photos(nome,url,fk_photographer) values("Neve","application/views/res/site/img/gallery/4.jpg",1);
+insert into tb_photos(name,url,fk_photographer) values("Cachorro","application/views/res/site/img/gallery/1.jpg",1);
+insert into tb_photos(name,url,fk_photographer) values("Lagarto","application/views/res/site/img/gallery/2.jpg",1);
+insert into tb_photos(name,url,fk_photographer) values("Torre","application/views/res/site/img/gallery/3.jpg",1);
+insert into tb_photos(name,url,fk_photographer) values("Neve","application/views/res/site/img/gallery/4.jpg",1);
 
 CREATE TABLE tb_photos_galleries (
 	fk_photo int NOT NULL,
