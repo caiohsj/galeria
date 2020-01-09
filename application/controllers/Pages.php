@@ -8,6 +8,7 @@ class Pages extends CI_Controller
                 $this->load->model("photos_model");
                 $this->load->model("configs_model");
                 $this->load->model("messages_model");
+                $this->load->helper('url');
         }
 	
 	public function view($page = "home")

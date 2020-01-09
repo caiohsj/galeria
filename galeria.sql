@@ -2,6 +2,7 @@ CREATE TABLE tb_users (
 	id int NOT NULL AUTO_INCREMENT,
 	login varchar(255) NOT NULL,
 	password varchar(255) NOT NULL,
+    photo varchar(255) NOT NULL,
 	isphotographer boolean NOT NULL DEFAULT false,
 	PRIMARY KEY(id)
 );

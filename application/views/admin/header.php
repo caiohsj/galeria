@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -13,25 +12,29 @@
     <title>Dashboard</title>
 
     <!-- Fontfaces CSS-->
-    <link href="../application/views/res/admin/css/font-face.css" rel="stylesheet" media="all">
-    <link href="../application/views/res/admin/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="../application/views/res/admin/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="../application/views/res/admin/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="<?php urlSite('/application/views/res/admin/css/font-face.css'); ?>" rel="stylesheet" media="all">
+    <link href="<?php urlSite('/application/views/res/admin/vendor/font-awesome-4.7/css/font-awesome.min.css'); ?> " rel="stylesheet" media="all">
+    <link href="<?php urlSite('/application/views/res/admin/vendor/font-awesome-5/css/fontawesome-all.min.css'); ?>" rel="stylesheet" media="all">
+    <link href="<?php urlSite('/application/views/res/admin/vendor/mdi-font/css/material-design-iconic-font.min.css'); ?>" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="../application/views/res/admin/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="<?php urlSite('/application/views/res/admin/vendor/bootstrap-4.1/bootstrap.min.css'); ?>" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="../application/views/res/admin/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="../application/views/res/admin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="../application/views/res/admin/vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="../application/views/res/admin/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="../application/views/res/admin/vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="../application/views/res/admin/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="../application/views/res/admin/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="<?php urlSite('/application/views/res/admin/vendor/animsition/animsition.min.css'); ?>" rel="stylesheet" media="all">
+    <link href="<?php urlSite('/application/views/res/admin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css'); ?>" rel="stylesheet" media="all">
+    <link href="<?php urlSite('/application/views/res/admin/vendor/wow/animate.css'); ?>" rel="stylesheet" media="all">
+    <link href="<?php urlSite('/application/views/res/admin/vendor/css-hamburgers/hamburgers.min.css'); ?>" rel="stylesheet" media="all">
+    <link href="<?php urlSite('/application/views/res/admin/vendor/slick/slick.css'); ?>" rel="stylesheet" media="all">
+    <link href="<?php urlSite('/application/views/res/admin/vendor/select2/select2.min.css'); ?>" rel="stylesheet" media="all">
+    <link href="<?php urlSite('/application/views/res/admin/vendor/perfect-scrollbar/perfect-scrollbar.css'); ?>" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="../application/views/res/admin/css/theme.css" rel="stylesheet" media="all">
+    <link href="<?php urlSite('/application/views/res/admin/css/theme.css'); ?>" rel="stylesheet" media="all">
+
+    <link rel="stylesheet" href="<?php urlSite('/application/views/res/admin/css/main.css'); ?>" type="text/css" />
+    <link rel="stylesheet" href="<?php urlSite('/application/views/res/admin/css/demos.css'); ?>" type="text/css" />
+    <link rel="stylesheet" href="<?php urlSite('/application/views/res/admin/css/jquery.Jcrop.css'); ?>" type="text/css" />
 
 </head>
 
@@ -42,8 +45,8 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
-                            <img src="../application/views/res/admin/images/icon/logo.png" alt="CoolAdmin" />
+                        <a class="logo" href="<?php urlSite('/admin/'); ?>">
+                            <img src="<?php urlSite('/application/views/res/admin/images/icon/logo.png'); ?>" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -57,27 +60,27 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li>
-                            <a href="photo">
+                            <a href="<?php urlSite('/admin/photo'); ?>">
                                 <i class="far fa-check-square"></i>Cadastrar Foto</a>
                         </li>
                         <li>
-                            <a href="photos">
+                            <a href="<?php urlSite('/admin/photos'); ?>">
                                 <i class="fas fa-table"></i>Fotos da galeria</a>
                         </li>
                         <li>
-                            <a href="project">
+                            <a href="<?php urlSite('/admin/project'); ?>">
                                 <i class="far fa-check-square"></i>Cadastrar Projeto</a>
                         </li>
                         <li>
-                            <a href="projects">
+                            <a href="<?php urlSite('/admin/projects'); ?>">
                                 <i class="fas fa-table"></i>Projetos</a>
                         </li>
                         <li>
-                            <a href="post">
+                            <a href="<?php urlSite('/admin/post'); ?>">
                                 <i class="far fa-check-square"></i>Criar Post no Blog</a>
                         </li>
                         <li>
-                            <a href="posts">
+                            <a href="<?php urlSite('/admin/posts'); ?>">
                                 <i class="fas fa-table"></i>Blog / Posts</a>
                         </li>
                     </ul>
@@ -89,36 +92,36 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
-                    <img src="../application/views/res/admin/images/icon/logo.png" alt="Cool Admin" />
+                <a href="<?php urlSite('/admin/'); ?>">
+                    <img src="<?php urlSite('/application/views/res/admin/images/icon/logo.png'); ?>" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         
-                        <li>
-                            <a href="photo">
+                       <li>
+                            <a href="<?php urlSite('/admin/photo'); ?>">
                                 <i class="far fa-check-square"></i>Cadastrar Foto</a>
                         </li>
                         <li>
-                            <a href="photos">
+                            <a href="<?php urlSite('/admin/photos'); ?>">
                                 <i class="fas fa-table"></i>Fotos da galeria</a>
                         </li>
                         <li>
-                            <a href="project">
+                            <a href="<?php urlSite('/admin/project'); ?>">
                                 <i class="far fa-check-square"></i>Cadastrar Projeto</a>
                         </li>
                         <li>
-                            <a href="projects">
+                            <a href="<?php urlSite('/admin/projects'); ?>">
                                 <i class="fas fa-table"></i>Projetos</a>
                         </li>
                         <li>
-                            <a href="post">
+                            <a href="<?php urlSite('/admin/post'); ?>">
                                 <i class="far fa-check-square"></i>Criar Post no Blog</a>
                         </li>
                         <li>
-                            <a href="posts">
+                            <a href="<?php urlSite('/admin/posts'); ?>">
                                 <i class="fas fa-table"></i>Blog / Posts</a>
                         </li>
                     </ul>
@@ -180,7 +183,7 @@
                                             ?>
                                             <a href="#"><div class="mess__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="../application/views/res/admin/images/icon/perfil-default.png" alt="Michelle Moreno" />
+                                                    <img src="<?php urlSite('/application/views/res/admin/images/icon/perfil-default.png'); ?>" alt="Michelle Moreno" />
                                                 </div>
                                                 <div class="content">
                                                     <a href="message/<?php echo $news_messages_item["id"]; ?>"><h6><?php echo $news_messages_item["name"]; ?></h6>
@@ -199,7 +202,7 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="../application/views/res/admin/images/icon/avatar-01.jpg" alt="John Doe" />
+                                            <img src="<?php urlSite('/'.$photographer['photo']); ?>" alt="John Doe" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#"><?php echo $photographer["name"];?></a>
@@ -208,7 +211,7 @@
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="../application/views/res/admin/images/icon/avatar-01.jpg" alt="John Doe" />
+                                                        <img src="<?php urlSite('/'.$photographer['photo']); ?>" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
@@ -220,11 +223,11 @@
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="account">
+                                                    <a href="<?php urlSite('/admin/account'); ?>">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="setting">
+                                                    <a href="<?php urlSite('/admin/setting'); ?>">
                                                         <i class="zmdi zmdi-settings"></i>Setting</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
@@ -233,7 +236,7 @@
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="logout">
+                                                <a href="<?php urlSite('/admin/logout'); ?>">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>

@@ -8,7 +8,7 @@
                                     <div class="au-card-title" style="background-image:url('images/bg-title-01.jpg');">
                                         <div class="bg-overlay bg-overlay--blue"></div>
                                         <h3>
-                                            <i class="zmdi zmdi-account-calendar"></i>26 April, 2018</h3>
+                                            <i class="zmdi zmdi-account-calendar"></i>26 April, 2018 </h3>
                                         <button class="au-btn-plus">
                                             <i class="zmdi zmdi-plus"></i>
                                         </button>

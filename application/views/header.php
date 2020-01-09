@@ -58,29 +58,23 @@
 				</a>
 				<img src="application/views/res/site/img/menu-icon.png" alt="" class="menu-icon">
 				<ul class="main-menu">
-					<?php if(isset($page_active) && $page_active === "home"){?>
-					<li class="active"><a href="/">Home</a></li>
-					<?php } else { ?>
-					<li class=""><a href="/">Home</a></li>
-					<?php }?>
+					<?php if(isset($page_active) && $page_active === "home"):?>
+					<li class="active"><a href="<?php urlSite('/');?>">Home</a></li>
+					<?php else: ?>
+                                        <li class=""><a href="<?php urlSite('/');?>">Home</a></li>
+					<?php endif;?>
 
-					<?php if(isset($page_active) && $page_active === "gallery"){?>
-					<li class="active"><a href="/gallery">Galeria</a></li>
-					<?php } else {?>
-					<li class=""><a href="/gallery">Galeria</a></li>
-					<?php }?>
+					<?php if(isset($page_active) && $page_active === "gallery"):?>
+					<li class="active"><a href="<?php urlSite('/gallery');?>">Galeria</a></li>
+					<?php else:?>
+					<li class=""><a href="<?php urlSite('/gallery');?>">Galeria</a></li>
+					<?php endif;?>
 
-					<?php if(isset($page_active) && $page_active === "blog"){?>
-					<li class="active"><a href="/blog">Blog</a></li>
-					<?php } else {?>
-					<li class=""><a href="/blog">Blog</a></li>
-					<?php }?>
-
-					<?php if(isset($page_active) && $page_active === "contact"){?>
-					<li class="active"><a href="/contact">Contato</a></li>
-					<?php } else {?>
-					<li class=""><a href="/contact">Contato</a></li>
-					<?php }?>
+					<?php if(isset($page_active) && $page_active === "contact"):?>
+					<li class="active"><a href="<?php urlSite('/contact');?>">Contato</a></li>
+					<?php else:?>
+					<li class=""><a href="<?php urlSite('/contact');?>">Contato</a></li>
+					<?php endif;?>
 				</ul>
 				<div class="social-links-warp">
 					<div class="social-links">

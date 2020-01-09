@@ -21,5 +21,10 @@ class Photographers_model extends CI_Model
 		$query = $this->db->get_where("tb_photographers", $data);
 		return $query->row_array();
 	}
+
+	public function update_photographers($data = array(), $where = array())
+	{
+		return $this->db->update("tb_photographers", $data, $where);	
+	}
 }
 ?>

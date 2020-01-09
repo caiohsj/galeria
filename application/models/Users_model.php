@@ -22,5 +22,10 @@ class Users_model extends CI_Model
 		return $query->row_array();
 	}
 
+	public function update_users($data = array(), $where = array())
+	{
+		return $this->db->update("tb_users", $data, $where);	
+	}
+
 }
 ?>
