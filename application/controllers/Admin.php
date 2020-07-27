@@ -14,7 +14,7 @@ class Admin extends CI_Controller {
         $this->load->model("messages_model");
         $this->load->model("configs_model");
         $this->load->helper("url");
-        $this->load_data_header();
+		$this->load_data_header();
     }
 
     public function index() {
@@ -30,7 +30,7 @@ class Admin extends CI_Controller {
 
     public function load_data_header() {
 
-        if ($this->verify_login() === false) {
+        if ($this->verify_login() === false && $this->uri->uri_string != 'admin/login') {
             header("location: ".BASE_URL."/admin/login");
         }
 
@@ -524,7 +524,9 @@ class Admin extends CI_Controller {
     }
 
     public function login() {
-        //$this->users_model->verify_login();
+        if ($this->verify_login() === true) {
+            header("location: ".BASE_URL."/admin");
+        }
 
         $this->load->helper('form');
         $this->load->library('form_validation');
