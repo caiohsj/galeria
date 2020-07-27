@@ -13,8 +13,9 @@ class Admin extends CI_Controller {
         $this->load->model("posts_model");
         $this->load->model("messages_model");
         $this->load->model("configs_model");
-        $this->load->helper("url");
-		$this->load_data_header();
+		$this->load->helper("url");
+		if ($this->uri->uri_string != 'admin/login')
+			$this->load_data_header();
     }
 
     public function index() {
@@ -33,7 +34,7 @@ class Admin extends CI_Controller {
         if ($this->verify_login() === false && $this->uri->uri_string != 'admin/login') {
             header("location: ".BASE_URL."/admin/login");
         }
-
+		
         //Pegando id usuário da sessão
         $values = [
             "fk_user" => $_SESSION["id_user"]
